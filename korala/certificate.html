@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Dues Certificate</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            border: 1px solid black;
+            padding: 20px;
+            width: 90%;
+            max-width: 800px;
+            margin: auto;
+            box-sizing: border-box;
+        }
+        .header {
+            margin-bottom: 20px;
+        }
+        .header h2 {
+            margin: 0;
+            text-align: center;
+        }
+        .info {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .info input {
+            width: 80px;
+        }
+        .content {
+            line-height: 1.6;
+        }
+        .content input {
+            width: 15%;
+        }
+        .footer {
+            margin-top: 20px;
+        }
+        .signature {
+            text-align: left;
+            padding-top: 50px;
+        }
+        .signature2 {
+            margin-top: -90px;
+            text-align: center;
+            float: right;
+        }
+        input {
+            border: none;
+            border-bottom: 1px solid black;
+            margin: 0;
+            /* width: 23%; */
+            box-sizing: border-box;
+            text-align: left;
+            background: transparent;
+            padding: 5px;
+        }
+        input::placeholder {
+            color: grey;
+            font-size: 10px;
+        }
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            text-align: center;
+        }
+        .complex input {
+            width: 50%;
+        }
+        .alive input {
+            width: 30%;
+        }
+        /* Media Queries for Responsive Design */
+        @media (max-width: 768px) {
+            .info, .signature {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .info p, .signature p {
+                margin-bottom: 10px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+ <body onload="loadData()">
+    <div class="container">
+        <div class="header">
+            <div class="main">
+                <p>ग्रामपंचायत कार्यालय <input type="text" id="office">
+                    ता.<input type="text" id="taluka"> जि.<input type="text" id="district">
+                    Grampanchayat Office<input type="text" id="office-en">
+                    Tal.<input type="text" id="taluka-en"> Dist.<input type="text" id="district-en"></p>
+            </div>
+            <h2><u>विधवा असल्याचा दाखला  widow certificate</u></h2>
+        </div>
+        <div class="info">
+            <p>जा़.क्र. &nbsp;&nbsp;&nbsp;<input type="text" id="document_no">
+            दिनांक: <input type="text" id="date">  </p>
+        </div>
+        <div class="content">
+            <label for="officer">सरपंच/ग्रामसेवक/ग्रामविकास अधिकारी, ग्रामपंचायत</label> 
+            <input type="text" id="officer">
+            <label for="taluka_officer">ता.<input type="text" id="taluka_officer"></label>
+            <label for="district_officer">जि.<input type="text" id="district_officer"></label>
+            <label for="officer-en">Sarpanch/Gramsevak/Village Development Officer, Grampanchayat</label>
+            <input type="text" id="officer-en"><br>
+            <label for="taluka_officer-en">Tal.<input type="text" id="taluka_officer-en"></label>
+            <label for="district_officer-en">Dist.<input type="text" id="district_officer-en"></label>
+        </div><br>
+        <div class="complex">
+            <label for="person">यांजकडून दाखला देण्यात येतो, श्री,/श्रीमती </label>
+            <input type="text" id="person">
+            <label for="person-en">is issuing the certificate to Mr./Mrs.</label>
+            <input type="text" id="person-en">
+        </div><br>
+        <div class="alive">
+            <label for="aadhaar">आधार कार्ड क्रमांक</label>
+            <input type="text" id="aadhaar">
+            <label for="aadhaar-en">Aadhar Card Number</label>
+            <input type="text" id="aadhaar-en">
+        </div><br>
+        <div>
+            <label for="panchayat">ह्या ग्रामपंचायत <input type="text" id="panchayat"> ता.<input type="text" id="taluka_resident"> जि.<input type="text" id="district_resident">, महाराष्ट्र </label><br>
+            <label for="panchayat-en">of Grampanchayat <input type="text" id="panchayat-en"> Tal.<input type="text" id="taluka_resident-en"> Dist.<input type="text" id="district_resident-en">, Maharashtra</label>
+            <p>येथील रहिवासी असून त्यांचे पती कै. श्रीं. <input type="text" id="husband_name"> हे मयत असून त्या विधवा आहेत. 
+                is a resident. Her husband Mr. <input type="text" id="husband_name-en"> is deceased and she is a widow. 
+                सदरचा दाखला अर्जदाराच्या मागणीनुसार त्यांचे पतीच्या मृत्युच्या दाखल्यावरून व स्थानिक चौकशी करून देण्यात येत आहे. 
+                This certificate is issued at the request of the applicant after verifying the death certificate of her husband and after the local level enquiry.</p>
+        </div>
+        <div class="footer">
+            <div class="signature">
+                <p>ठिकाण: <input type="text" id="place"></p>
+                <p>Place: <input type="text" id="place-en"></p>
+            </div>
+            <div class="signature2">
+                <p>सही व शिक्का <br> Signature with Stamp <br> सरपंच/ग्रामसेवक/ग्रामविकास अधिकारी <br> Sarpanch/Gramsevak/Village Development Officer</p>
+            </div>
+        </div>
+    </div>   
+<script>
+    function getQueryParams() {
+        const params = new URLSearchParams(window.location.search);
+        return JSON.parse(params.get('data'));
+    }
+
+    function populateCertificate(data) {
+        document.getElementById('office').value = data[0];
+        document.getElementById('taluka').value = data[1];
+        document.getElementById('district').value = data[2];
+        document.getElementById('document_no').value = data[3];
+        document.getElementById('date').value = data[4];
+        document.getElementById('officer').value = data[6];
+        document.getElementById('taluka_officer').value = data[7];
+        document.getElementById('district_officer').value = data[8];
+        document.getElementById('panchayat').value = data[10];
+        document.getElementById('taluka_resident').value = data[11];
+        document.getElementById('district_resident').value = data[12];
+        document.getElementById('person').value = data[8];
+        document.getElementById('aadhaar').value = data[9];
+        document.getElementById('husband_name').value = data[13];
+        document.getElementById('place').value = data[15];
+
+        // Populate English fields
+        document.getElementById('office-en').value = data[0];
+        document.getElementById('taluka-en').value = data[1];
+        document.getElementById('district-en').value = data[2];
+        document.getElementById('officer-en').value = data[6];
+        document.getElementById('taluka_officer-en').value = data[7];
+        document.getElementById('district_officer-en').value = data[8];
+        document.getElementById('aadhaar-en').value = data[9];
+        document.getElementById('panchayat-en').value = data[10];
+       document.getElementById('taluka_resident-en').value = data[11];
+        document.getElementById('district_resident-en').value = data[12];
+        document.getElementById('person-en').value = data[8];
+        document.getElementById('place-en').value = data[15];
+        document.getElementById('husband_name-en').value = data[13];
+    }
+
+    window.onload = function() {
+        const data = getQueryParams();
+        populateCertificate(data);
+    }
+</script>
+
+</body>
+</html>  -->

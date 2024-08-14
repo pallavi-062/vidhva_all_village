@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Form</title>
+    <style>
+        .container {
+            padding: 20px;
+            border: 2px solid #000;
+            margin: 20px auto;
+            max-width: 600px;
+            background-color: #f9f9f9;
+        }
+        h2 {
+            text-align: center;
+        }
+        label, input {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            padding: 5px;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px;
+            width: 100px;
+            background-color: blue;
+            color: azure;
+            border: none;
+            cursor: pointer;
+        }
+        .btn_link{
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>विधवा असल्याचा दाखला</h2>
+        <form action="" method="post" name="google-sheet">
+            <label for="office">ग्रामपंचायत कार्यालय :-</label>
+            <input type="text" id="office" name="office">
+
+            <label for="taluka">ता. :-</label>
+            
+            <input type="text" id="taluka" name="taluka">
+
+            <label for="district">जि. :-</label>
+            <input type="text" id="district" name="district">
+
+            <label for="document_no">जा क्रं :-</label>
+            <input type="text" id="document_no" name="document_no">
+
+            <label for="date">दिनांक :-</label>
+            <input type="text" id="date" name="date">
+
+            <label for="officer">सरपंच/ग्रामसेवक/ग्रामसेवक अधिकारी ग्रामपंचायत :-</label>
+            <input type="text" id="officer" name="officer">
+
+            <label for="taluka_officer">ता. :-</label>
+            <input type="text" id="taluka_officer" name="taluka_officer">
+
+            <label for="district_officer">जि. :-</label>
+            <input type="text" id="district_officer" name="district_officer">
+
+            <label for="person">यांच्याकडून दाखला देण्यात येतो की.श्री./श्रीमती :-</label>
+            <input type="text" id="person" name="person">
+
+            <label for="aadhaar">आधारकार्ड क्रं :-</label>
+            <input type="text" id="aadhaar" name="aadhaar">
+
+            <label for="panchayat">हया ग्रामपंचायत:-</label>
+            <input type="text" id="panchayat" name="panchayat">
+
+            <label for="taluka_resident">ता. :-</label>
+            <input type="text" id="taluka_resident" name="taluka_resident">
+
+            <label for="district_resident">जि. :-</label>
+            <input type="text" id="district_resident" name="district_resident">
+
+            <label for="husband_name">येथील रहिवासी असून त्यांचे पती कै.श्री :-</label>
+            <input type="text" id="husband_name" name="husband_name">
+
+            <label for="widow_status">हे मयत असून त्या विधवा आहेत :-</label>
+            <input type="text" id="widow_status" name="widow_status">
+
+            <label for="place">ठिकाण :-</label>
+            <input type="text" id="place" name="place">
+
+             <button type="submit" id="btn"> Save</button> 
+        </form>
+       
+    </div>
+   
+    <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxxUpAO9QPC4TIDMrpyB8tN9gjcaeTXfO4sgVQSZhIU6Z_CSkDBoVtlLACQSITmWJxa/exec'
+    const form = document.forms['google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+    
+</body>
+
+</html>
